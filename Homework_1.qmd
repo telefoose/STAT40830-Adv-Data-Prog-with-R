@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-## Homework 1
+## Homework 1, but now using git to version control
 
 The *ChickWeight* dataset is included in base R and documents the weight of chicks measured over time under different diets. It is often used for longitudinal data examples.
 
