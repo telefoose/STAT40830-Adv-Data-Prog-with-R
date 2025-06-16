@@ -1,0 +1,42 @@
+---
+title: "Homework_1"
+format: pdf
+editor: visual
+execute:
+  echo: false
+---
+
+## Homework 1
+
+The *ChickWeight* dataset is included in base R and documents the weight of chicks measured over time under different diets. It is often used for longitudinal data examples.
+
+```{r}
+# Load dataset
+library(tidyverse)
+data(ChickWeight)
+head(ChickWeight)
+```
+
+Let's look at the number of observations and basic statistics of chick weights.
+
+```{r}
+summary(ChickWeight$weight)
+table(ChickWeight$Diet)
+length(unique(ChickWeight$Chick))
+```
+
+-   The data set contains multiple measurements of weight (weight) taken at different Time points.
+-   There are 4 different diets applied to chicks.
+-   There are multiple chicks (unique IDs) in the data set.
+
+```{r}
+ggplot(ChickWeight, aes(x = Time, y = weight, color = Diet)) +
+  geom_point() +
+  geom_smooth(method = "loess", se = FALSE) +
+  labs(title = "Chick Weight Over Time by Diet",
+       x = "Time (days)",
+       y = "Weight (grams)",
+       color = "Diet")
+```
+
+The scatter plot with smoothed lines reveals that chicks on Diet 3 and Diet 4 tend to gain weight more rapidly than those on Diets 1 and 2. This suggests potential differences in the effectiveness of the diets on chick growth over time.
